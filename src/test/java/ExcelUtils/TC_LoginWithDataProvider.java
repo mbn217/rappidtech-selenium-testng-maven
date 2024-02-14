@@ -39,7 +39,7 @@ public class TC_LoginWithDataProvider {
 
     @DataProvider(name = "data-login")
     public Object[][] loginDataSet(){
-        return getLoginDataSet();
+        return getDataSet();
     }
 
 
