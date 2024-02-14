@@ -43,7 +43,12 @@ public class TC_LoginWithDataProvider {
     }
 
 
-    public Object[][] getLoginDataSet(){
+    /**
+     * This methold will read excel sheet data set and return them
+     * in the form of two dimensional array
+     * @return two dimensional array of the excel dataset
+     */
+    public Object[][] getDataSet(){
         ExcelUtility.getExcelInstance("./testdata/data.xlsx", "Sheet1");
         int rowCount = ExcelUtility.getRowCount();
         int colCount = ExcelUtility.getColCount();
