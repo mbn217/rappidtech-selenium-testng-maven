@@ -1,4 +1,6 @@
-package Utilities;
+package Demos;
+
+import Utilities.ExcelUtility;
 
 public class DemoExcel {
 
