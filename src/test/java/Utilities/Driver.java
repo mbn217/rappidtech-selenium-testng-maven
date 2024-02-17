@@ -13,25 +13,27 @@ public class Driver {
 
     public static WebDriver getDriver(String browser){
 
-        //Create webDriver based on the value of the browser parameter
-        switch (browser.toLowerCase()) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                break;
-            case "edge":
-                WebDriverManager.edgedriver().setup();
-                driver = new EdgeDriver();
-                break;
-            default:
-                WebDriverManager.chromedriver().setup();
-                driver =  new ChromeDriver();
-                break;
+        if( driver == null) {
+            //Create webDriver based on the value of the browser parameter
+            switch (browser.toLowerCase()) {
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    break;
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver = new EdgeDriver();
+                    break;
+                default:
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    break;
 
+            }
         }
         driver.manage().window().maximize();
         return driver;
