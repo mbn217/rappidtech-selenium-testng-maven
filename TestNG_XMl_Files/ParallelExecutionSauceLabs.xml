@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Parallel Suite Demo"   parallel="" thread-count="2" >
+    
+    <test name=" Parallel Test Demo">
+        
+        <classes>
+            
+            <class name="parallel_execution.TC_01_LoginToSauceLabs"></class>
+            <class name="parallel_execution.TC_02_VerifyMainPage"></class>
+
+        </classes>
+
+    </test>
+    
+</suite>

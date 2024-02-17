@@ -1,6 +1,7 @@
 package TestCases;
 
 import Utilities.ExcelUtility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +16,8 @@ public class TC_LoginWithDataProvider {
     @BeforeMethod
     void setup() throws InterruptedException {
         //Step 1 : Set the driver path
-        System.setProperty("webdriver.chrome.driver", "./browserdrivers/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "./browserdrivers/chromedriver");
+        WebDriverManager.chromedriver().setup();
         //Step 2 : Create an instance of ChromeDriver
         driver = new ChromeDriver(); // Upcasting
         driver.get("https://www.saucedemo.com/");

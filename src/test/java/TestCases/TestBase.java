@@ -9,11 +9,11 @@ import org.testng.annotations.Parameters;
 
 public class TestBase {
 
-    WebDriver driver;
+    public WebDriver driver;
 
     @BeforeMethod
     @Parameters({"browser"})
-    void setUp(@Optional("chrome") String browser) throws InterruptedException {
+    public void setUp(@Optional("chrome") String browser) throws InterruptedException {
         driver = Driver.getDriver(browser);
         driver.get("https://www.saucedemo.com/");
         Thread.sleep(5000);
@@ -22,7 +22,7 @@ public class TestBase {
 
 
     @AfterMethod
-    void tearDown(){
+    public void tearDown(){
         Driver.closeDriver();
     }
 
