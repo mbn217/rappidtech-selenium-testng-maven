@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="This is my first xml suite">
+
+    <test name="THis is my test">
+
+        <classes>
+            <class name="MavenCommandDemo.RunInChrome"></class>
+            <class name="MavenCommandDemo.RunInFireFox"></class>
+        </classes>
+
+    </test>
+</suite>
