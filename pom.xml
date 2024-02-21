@@ -15,6 +15,58 @@
     </properties>
 
 
+
+    <profiles>
+        <profile>
+            <id>smoke</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.2.5</version>
+                            <configuration>
+                                <testFailureIgnore>true</testFailureIgnore>
+                                <suiteXmlFiles>
+                                    <!--suppress UnresolvedMavenProperty -->
+                                    <suiteXmlFile>TestNG_XMl_Files/ProfilesXml/TC_01.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>regression</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.2.5</version>
+                            <configuration>
+                                <testFailureIgnore>true</testFailureIgnore>
+                                <suiteXmlFiles>
+                                    <!--suppress UnresolvedMavenProperty -->
+                                    <suiteXmlFile>TestNG_XMl_Files/ProfilesXml/TC_02.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+    </profiles>
+
+
+
+
+
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -56,6 +108,16 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
+        <dependency>
+            <groupId>com.relevantcodes</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>2.40.1</version>
+        </dependency>
+
+
+
 
 
     </dependencies>
