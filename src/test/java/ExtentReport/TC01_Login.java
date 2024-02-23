@@ -16,7 +16,6 @@ public class TC01_Login  extends BaseClass {
         driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys("standard_user");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
         driver.findElement(By.xpath("//input[@id='login-button']")).click();
-        Assert.assertEquals(true, false);
         Thread.sleep(1000);
 
 

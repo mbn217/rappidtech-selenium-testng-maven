@@ -9,43 +9,39 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class BaseClass {
-    WebDriver driver ;
-    ExtentSparkReporter sparkReporter;
-    public ExtentReports extentReports;
-    public ExtentTest extentTest;
+    WebDriver driver;
+    public static ExtentReports extentReports;
+    public static ExtentTest extentTest;
 
 
     @BeforeTest
-    public void startReport(){
-        System.out.println("Before Test **********");
-        sparkReporter = ExtentFactory.getInstance();
+    public void startReport() {
         //Initialize the Extent Reporter
-        extentReports = new ExtentReports();
-        extentReports.attachReporter(sparkReporter);
+        extentReports = ExtentFactory.getInstance();
     }
 
     @AfterTest
-    public void endReport(){
-        System.out.println("After Test **********");
+    public void endReport() {
         extentReports.flush();
     }
 
 
-
     @BeforeMethod
     void setUp() throws InterruptedException {
+        extentReports = ExtentFactory.getInstance();
         driver = Driver.getDriver("chrome");
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -54,7 +50,7 @@ public class BaseClass {
     }
 
     @AfterMethod
-    void tearDown(ITestResult result){
+    void tearDown(ITestResult result) {
         Driver.closeDriver();
     }
 

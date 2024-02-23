@@ -22,8 +22,7 @@ public class TC02_VerifyLabel extends BaseClass {
         driver.findElement(By.xpath("//input[@id='login-button']")).click();
         //Verify main Label
         WebElement actualLabel = driver.findElement(By.xpath("//div[.='Swag Labs' and @class='app_logo']"));
-        Assert.assertEquals(actualLabel.getText() , "Swag Labs");
-        extentTest.log(Status.PASS , " This Test case passed");
+        Assert.assertEquals(actualLabel.getText() , "Swag Labss");
         Thread.sleep(1000);
 
 
