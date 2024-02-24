@@ -3,6 +3,7 @@ package ExtentReport;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.Test;
 
 public class TC01_Login  extends BaseClass {
@@ -17,7 +18,6 @@ public class TC01_Login  extends BaseClass {
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
         driver.findElement(By.xpath("//input[@id='login-button']")).click();
         Thread.sleep(1000);
-
 
     }
 

@@ -19,7 +19,7 @@ public class ExtentFactory {
             sparkReporter = new ExtentSparkReporter("./reports/extentreport.html"); // ExtentSparkReporter class used to customize the report file
             //Add additional information into our reports
             sparkReporter.config().setDocumentTitle("Automation Report For Sauce Labs");//Change report file title
-            sparkReporter.config().setReportName("Report"); //Change report name
+            sparkReporter.config().setReportName("Report for RappidTech"); //Change report name
             sparkReporter.config().setTheme(Theme.STANDARD);
             //sparkReporter.config().setTimeStampFormat(" EEEE , MMMM dd, yyyy , hh:mm a '('zzz')' ");
             //sparkReporter.config().setCss(".nav-wrapper { background-color: #4B0082 !important; } .nav-logo{margin-top: 10px;}.brand-logo { background-color: #4B0082 !important; padding: 0 10px 0 0 !important; margin: 0 !important; position: absolute !important } .report-name { margin-left: 80px !important } .blue.darken-3 { background-color:#4B0082 !important; color: #FFF !important;}");
@@ -29,6 +29,7 @@ public class ExtentFactory {
             extentReports.setSystemInfo("Tester", "RappidTech");//Put System info
             extentReports.setSystemInfo("Selenium Version" ,"4.16.1");
             extentReports.setSystemInfo("Environment","QA");
+            extentReports.setSystemInfo("Machine","Mac OS");
         }
 
         return extentReports;
