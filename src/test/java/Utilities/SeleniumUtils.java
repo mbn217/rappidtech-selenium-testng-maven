@@ -27,14 +27,13 @@ public class SeleniumUtils {
         String finalPath;
         // below code will get the current date in below format and return a string representation and assign it to date variable
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        //This below code will take a screen shot with the helo of TakesScreenshot interface
+        //This below code will take a screenshot with the help of TakesScreenshot interface
         TakesScreenshot ts = (TakesScreenshot) driver;
         //This below code will output the screenshot as a file type
         File sourceFile = ts.getScreenshotAs(OutputType.FILE);
-        //Specify the path were we want to paste our screen shot
+        //Specify the path were we want to paste our screenshot
         path = System.getProperty("user.dir")+"/ScreenShots/" + screenShotName + date + ".png";
         if(System.getProperty("os.name").toLowerCase().contains("win")){
-
             path = System.getProperty("user.dir")+ "\\" + "ScreenShots" + "\\" + screenShotName + date + ".png";
         }
         //We will get the file from the source and put it into the destination path
@@ -63,8 +62,11 @@ public class SeleniumUtils {
         System.out.println(result.getName()  + "-------> { " + result.getStatus() + "  }  <---------");
 
         if(result.getStatus() == ITestResult.FAILURE){
+            //if the test fail then log FAIL to extent report and get the error logs
             extentTest.log(Status.FAIL, "Test Case: " + result.getName() +" Failed\n" + result.getThrowable());
+            //get the screenshot path by calling below method that returns the screenshot path
             String screenShotPath = getScreenShotPath(driver, result.getName());
+            //attach screenshot to the failed test
             extentTest.addScreenCaptureFromPath(screenShotPath);
         } else if (result.getStatus() == ITestResult.SKIP) {
             extentTest.log(Status.SKIP, "Test Case: " + result.getName() +" Passed");
@@ -72,7 +74,6 @@ public class SeleniumUtils {
             extentTest.log(Status.PASS, "Test Case: " + result.getName() +" Passed");
         }
     }
-
 
 
 }
