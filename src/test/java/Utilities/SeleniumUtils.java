@@ -23,6 +23,8 @@ public class SeleniumUtils {
      * @return the path to the screen shot that was taken
      */
     public static String  getScreenShotPath(WebDriver driver, String screenShotName){
+        String path;
+        String finalPath;
         // below code will get the current date in below format and return a string representation and assign it to date variable
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         //This below code will take a screen shot with the helo of TakesScreenshot interface
@@ -30,7 +32,11 @@ public class SeleniumUtils {
         //This below code will output the screenshot as a file type
         File sourceFile = ts.getScreenshotAs(OutputType.FILE);
         //Specify the path were we want to paste our screen shot
-        String path = System.getProperty("user.dir")+"/ScreenShots/" + screenShotName + date + ".png";
+        path = System.getProperty("user.dir")+"/ScreenShots/" + screenShotName + date + ".png";
+        if(System.getProperty("os.name").toLowerCase().contains("win")){
+
+            path = System.getProperty("user.dir")+ "\\" + "ScreenShots" + "\\" + screenShotName + date + ".png";
+        }
         //We will get the file from the source and put it into the destination path
         File destination = new File(path);
         try {
