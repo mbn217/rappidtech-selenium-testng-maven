@@ -59,7 +59,7 @@ public class SeleniumUtils {
      *                   most likely in the BaseClass
      */
     public static void getResults(ITestResult result , WebDriver driver, ExtentTest extentTest){
-        System.out.println(result.getName()  + "-------> { " + result.getStatus() + "  }  <---------");
+        System.out.println(result.getName()  + "-------> {" + result.getStatus() + "}  <---------");
 
         if(result.getStatus() == ITestResult.FAILURE){
             //if the test fail then log FAIL to extent report and get the error logs
