@@ -22,7 +22,7 @@ public class TestBase {
     @Parameters({"browser"})
     public void setUp(@Optional("chrome") String browser) throws InterruptedException {
         driver = Driver.getDriver(browser);
-        //loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(driver);
         sauceLabsMainPage = new SauceLabsMainPage(driver);
 
         driver.get("https://www.saucedemo.com/");

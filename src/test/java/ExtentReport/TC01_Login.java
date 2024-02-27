@@ -1,14 +1,11 @@
 package ExtentReport;
 
-import com.aventstack.extentreports.Status;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.Test;
 
 public class TC01_Login  extends BaseClass {
-
-
 
 
     @Test

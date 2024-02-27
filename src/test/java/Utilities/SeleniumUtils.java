@@ -17,10 +17,10 @@ public class SeleniumUtils {
 
 
     /**
-     * This method takes a screen shot and returns the filepath to the png file
+     * This method takes a screenshot and returns the filepath to the png file
      * @param driver THis is the driver that needs to pass to the method at runtime
      * @param screenShotName This is the scrennshot name
-     * @return the path to the screen shot that was taken
+     * @return the path to the screenshot that was taken
      */
     public static String  getScreenShotPath(WebDriver driver, String screenShotName){
         String path;

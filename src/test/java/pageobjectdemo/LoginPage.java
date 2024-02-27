@@ -1,6 +1,8 @@
 package pageobjectdemo;
 
 import Utilities.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     WebDriver driver;// = Driver.getDriver("chrome");
+    private static final Logger logger = LogManager.getLogger(LoginPage.class);
     public LoginPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -42,13 +45,16 @@ public class LoginPage {
 
 
     public void enterUserName(String username){
+        logger.info("Entering a username");
         userNameField.sendKeys(username);
     }
     public void enterPassword(String password){
+        logger.info("Entering a password");
         passwordField.sendKeys(password);
     }
 
     public void clickOnLoginButton(){
+        logger.info("Clicking on the Submit button");
         loginButton.click();
     }
 
